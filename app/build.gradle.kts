@@ -5,7 +5,7 @@ plugins {
 }
 android {
     namespace = "com.ajassistant"
-    compileSdk = 35
+    compileSdk = 37
     defaultConfig {
         applicationId = "com.ajassistant"
         minSdk = 26
