@@ -1,0 +1,18 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# Signing and secrets
+*.jks
+*.keystore
+secrets.properties
+.env
+.env.*
+!.env.example
+
+# Local OpenCode / IDE state
+.opencode/local/
