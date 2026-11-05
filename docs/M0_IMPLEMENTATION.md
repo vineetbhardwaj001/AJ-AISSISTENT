@@ -7,12 +7,14 @@ A minimal, permission-free Android application shell. No contacts, calls, calend
 - Android Gradle Plugin: 9.3.1
 - Gradle: 9.5.0
 - Kotlin and Compose compiler plugin: 2.4.21
-- Compose BOM: 2025.11.00
-- compileSdk / targetSdk: 35
+- Compose BOM: 2026.09.00
+- compileSdk: 37 (already present in the audited Android SDK)
+- targetSdk: 35
 - minSdk: 26
 - Java and Kotlin bytecode target: 17
+- Gradle runtime: Android Studio bundled JBR 25 is expected to be supported by Gradle 9.5; verify with the first local sync.
 
-AGP/Kotlin/Gradle are selected from their overlapping fully supported ranges in the official compatibility documentation. SDK Platform 35 must be installed locally before building.
+AGP 9.3 supports API 37 and requires Gradle 9.5. Kotlin 2.4.21's fully supported AGP range includes AGP 9.3.1, and its supported Gradle range includes 9.5. Gradle 9.5 supports running on Java 25. See the official Android and Kotlin compatibility references.
 
 ## Structure
 - Single :app module
@@ -23,10 +25,10 @@ AGP/Kotlin/Gradle are selected from their overlapping fully supported ranges in 
 - One JVM unit test
 
 ## Local setup
-- Use Android Studio's bundled JDK for Gradle only after confirming Gradle 9.5 runs correctly on that JDK. Bytecode target remains 17.
+- Use Android Studio's bundled JDK (JBR 25) for Gradle after confirming the first sync succeeds.
 - Do not commit local.properties or machine-specific SDK/JDK paths.
-- Install Android SDK Platform 35.
-- Gradle wrapper scripts/JAR are not yet included. Generate them locally using a verified Gradle installation or Android Studio's wrapper tooling, then commit them before claiming command-line reproducibility.
+- SDK Platform 37 and Build Tools 36.0.0 were observed in the environment audit.
+- Gradle wrapper scripts/JAR are not yet included. Generate and commit them after verifying the local Gradle runtime, before claiming command-line reproducibility.
 
 ## Verification status
 Not yet built, linted, installed, or tested on RMX3762. Record actual local command output before marking any check as passed.
